@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowRight,
+  faArrowUp,
   faBriefcase,
   faChartLine,
   faCheck,
@@ -69,6 +70,14 @@ export default function Home() {
   const [submitError, setSubmitError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [autoPrompt, setAutoPrompt] = useState(true);
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setShowBackToTop(window.scrollY > 500);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
@@ -105,13 +114,16 @@ export default function Home() {
   };
 
   return (
-    <main className="overflow-hidden bg-ink">
+    <main id="top" className="overflow-hidden bg-ink">
       <header className="sticky top-0 z-40 border-b border-white/5 bg-ink/95 backdrop-blur">
         <div className="mx-auto flex h-[78px] max-w-[1400px] items-center justify-between px-6 lg:px-12">
           <a href="#top" aria-label="Mary E. Brown" style={{ fontFamily: "var(--font-signature), cursive" }} className="text-[31px] leading-none sm:text-[35px]"><span className="text-ivory">Mary E.</span> <span className="text-gold">Brown</span></a>
           <button className="grid gap-1.5 lg:hidden" onClick={() => setMenuOpen((open) => !open)} aria-label="Toggle navigation"><span className="h-px w-6 bg-gold"/><span className="h-px w-6 bg-gold"/></button>
           <nav className={`${menuOpen ? "flex" : "hidden"} absolute left-0 right-0 top-[78px] flex-col gap-5 bg-ink px-6 py-6 lg:static lg:flex lg:flex-row lg:gap-9 lg:bg-transparent lg:p-0`}>
             {[["About", faBriefcase], ["Strategy", faCompass], ["Results", faChartLine], ["Process", faLayerGroup], ["Eligibility", faShieldHalved]].map(([item, icon]) => <a key={item as string} href={`#${(item as string).toLowerCase()}`} onClick={() => setMenuOpen(false)} className="flex items-center gap-2.5 text-[10px] uppercase tracking-[.2em] text-mist transition hover:text-gold"><FontAwesomeIcon icon={icon as typeof faBriefcase} className="w-3.5 text-[13px] text-gold"/>{item as string}</a>)}
+            <span className="mt-2 border-t border-gold/20 pt-5 text-[9px] uppercase tracking-[.16em] text-mist/70 lg:hidden">
+              © {new Date().getFullYear()} Mary Eklund Brown. All rights reserved.
+            </span>
           </nav>
           <button className="gold-button hidden lg:inline-flex" onClick={openConsultation}>Book a Consultation</button>
         </div>
@@ -207,6 +219,15 @@ export default function Home() {
       </section>
 
       <footer className="flex flex-col gap-3 border-t border-white/5 bg-ink px-6 py-8 text-[10px] text-mist sm:flex-row sm:items-center sm:justify-between lg:px-12"><span style={{ fontFamily: "var(--font-signature), cursive" }} className="text-[28px] leading-none"><span className="text-ivory">Mary E.</span> <span className="text-gold">Brown</span></span><span>Financial Advisor &amp; Broker</span><span>© {new Date().getFullYear()} Mary Eklund Brown</span></footer>
+
+      <button
+        type="button"
+        aria-label="Back to top"
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        className={`fixed bottom-6 left-6 z-30 grid size-12 place-items-center border border-gold/60 bg-ink/95 text-gold shadow-lg backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:bg-gold hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold ${showBackToTop ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-4 opacity-0"}`}
+      >
+        <FontAwesomeIcon icon={faArrowUp} className="text-base" />
+      </button>
 
       {modalOpen ? <div className="modal-backdrop-enter fixed inset-0 z-50 grid place-items-center overflow-y-auto bg-[#010810]/90 p-3 sm:p-6" onMouseDown={(event) => event.target === event.currentTarget && setModalOpen(false)}>
         <section className={`modal-panel-enter relative border border-gold/30 bg-deep shadow-2xl ${goal ? "w-full max-w-[560px] p-7 sm:p-11" : "grid w-full max-w-[850px] lg:grid-cols-[1.04fr_.96fr]"}`} role="dialog" aria-modal="true" aria-label="Schedule a consultation">
