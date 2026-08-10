@@ -126,6 +126,8 @@ export default function Home() {
         "@context": "https://schema.org",
         "@type": "Person",
         name: "Andrea Marie Shenocca",
+        url: "https://www.andreamarieshenocca.online/",
+        image: "https://www.andreamarieshenocca.online/mary-eklund-brown.jpeg",
         jobTitle: "Financial Advisor & Broker",
         description: "Financial advisor and broker providing personalized investment management, retirement planning, and wealth strategies.",
         knowsAbout: ["Investment Management", "Retirement Planning", "Wealth Preservation", "Financial Strategy", "Brokerage Services"],
