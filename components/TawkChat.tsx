@@ -11,7 +11,15 @@ export default function TawkChat() {
   return (
     <>
       <Script id="tawk-api-init" strategy="afterInteractive">
-        {"window.Tawk_API=window.Tawk_API||{};window.Tawk_LoadStart=new Date();"}
+        {`window.Tawk_API=window.Tawk_API||{};
+window.Tawk_API.customStyle={
+  zIndex:"20 !important",
+  visibility:{
+    desktop:{position:"br",xOffset:20,yOffset:20},
+    mobile:{position:"br",xOffset:16,yOffset:16}
+  }
+};
+window.Tawk_LoadStart=new Date();`}
       </Script>
       <Script
         id="tawk-widget"
