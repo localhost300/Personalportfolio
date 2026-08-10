@@ -121,7 +121,7 @@ export default function Home() {
   };
 
   return (
-    <main id="top" className="overflow-hidden bg-ink">
+    <main id="top" className="portfolio-page overflow-hidden bg-ink">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "Person",
@@ -235,7 +235,7 @@ export default function Home() {
         <div className="mx-auto max-w-[650px]"><div className="justify-center section-label before:hidden">Your next chapter</div><h2 className="display-title mt-7">The cost of waiting is<br/><em>compounding against you</em></h2><p className="body-copy mt-6">Strong financial outcomes begin with a clear plan. Start a private conversation about the future you want to build.</p><button className="gold-button mt-8" onClick={openConsultation}>Schedule a Consultation <FontAwesomeIcon icon={faArrowRight}/></button><p className="mt-4 text-[9px] text-mist/70">No pressure. No obligation. Just a thoughtful conversation.</p></div>
       </section>
 
-      <footer className="flex flex-col gap-3 border-t border-white/5 bg-ink px-6 py-8 text-[10px] text-mist sm:flex-row sm:items-center sm:justify-between lg:px-12"><span className="signature-logo whitespace-nowrap text-[23px] leading-none sm:text-[26px]"><span className="text-ivory">Andrea Marie</span> <span className="text-gold">Shenocca</span></span><span>Financial Advisor &amp; Broker</span><span>© {new Date().getFullYear()} Andrea Marie Shenocca</span></footer>
+      <footer className="flex flex-col gap-3 border-t border-white/5 bg-ink px-6 py-8 text-[13px] text-mist sm:flex-row sm:items-center sm:justify-between lg:px-12"><span className="signature-logo whitespace-nowrap text-[23px] leading-none sm:text-[26px]"><span className="text-ivory">Andrea Marie</span> <span className="text-gold">Shenocca</span></span><span>Financial Advisor &amp; Broker</span><span>© {new Date().getFullYear()} Andrea Marie Shenocca</span></footer>
 
       <button
         type="button"

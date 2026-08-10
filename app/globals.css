@@ -24,13 +24,25 @@
     letter-spacing: .01em;
   }
 
-  .section-label { @apply flex items-center gap-3 text-[10px] font-medium uppercase tracking-label text-gold; }
+  .section-label { @apply flex items-center gap-3 text-[12px] font-medium uppercase tracking-label text-gold; }
   .section-label::before { content: ""; @apply h-px w-5 bg-gold; }
   .display-title { @apply font-display text-[44px] font-normal leading-[1.05] tracking-[-0.02em] text-ivory md:text-[58px]; }
   .display-title em { @apply font-normal text-gold; }
   .body-copy { @apply text-[16px] font-normal leading-[1.75] text-mist; }
-  .gold-button { @apply inline-flex min-h-11 items-center justify-center gap-2.5 bg-gold px-5 py-3 text-[9px] font-semibold uppercase tracking-[.14em] text-ink transition hover:bg-[#e2c65b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold; }
+  .gold-button { @apply inline-flex min-h-11 items-center justify-center gap-2.5 bg-gold px-5 py-3 text-[11px] font-semibold uppercase tracking-[.14em] text-ink transition hover:bg-[#e2c65b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold; }
   .gold-button svg { @apply size-3 shrink-0; }
+  .portfolio-page section [class~="text-[8px]"],
+  .portfolio-page .modal-backdrop-enter [class~="text-[8px]"] { font-size: 11px; }
+  .portfolio-page section [class~="text-[9px]"],
+  .portfolio-page .modal-backdrop-enter [class~="text-[9px]"] { font-size: 12px; }
+  .portfolio-page section [class~="text-[10px]"],
+  .portfolio-page .modal-backdrop-enter [class~="text-[10px]"] { font-size: 12px; }
+  .portfolio-page section [class~="text-[11px]"],
+  .portfolio-page .modal-backdrop-enter [class~="text-[11px]"] { font-size: 13px; }
+  .portfolio-page section [class~="text-[12px]"],
+  .portfolio-page section [class~="text-xs"],
+  .portfolio-page .modal-backdrop-enter [class~="text-[12px]"],
+  .portfolio-page .modal-backdrop-enter [class~="text-xs"] { font-size: 14px; }
   .border-panel { @apply border border-gold/20 bg-panel; }
   .reveal-enter { animation: reveal-enter .65s ease-out both; }
   .modal-backdrop-enter { animation: modal-fade .28s ease-out both; }
