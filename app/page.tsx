@@ -88,9 +88,9 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = modalOpen ? "hidden" : "";
+    document.body.style.overflow = modalOpen || menuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
-  }, [modalOpen]);
+  }, [menuOpen, modalOpen]);
 
   useEffect(() => {
     if (!modalOpen || !submitted) return;
@@ -224,9 +224,9 @@ export default function Home() {
         type="button"
         aria-label="Back to top"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className={`fixed bottom-6 left-6 z-40 grid size-12 place-items-center border border-gold/60 bg-ink/95 text-gold shadow-lg backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:bg-gold hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold ${showBackToTop ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-4 opacity-0"}`}
+        className={`fixed bottom-5 left-5 z-40 grid size-9 place-items-center border border-gold/60 bg-ink/95 text-gold shadow-lg backdrop-blur transition-all duration-300 sm:bottom-6 sm:left-6 sm:size-10 hover:-translate-y-1 hover:border-gold hover:bg-gold hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold ${showBackToTop ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-4 opacity-0"}`}
       >
-        <FontAwesomeIcon icon={faArrowUp} className="text-base" />
+        <FontAwesomeIcon icon={faArrowUp} className="text-xs sm:text-sm" />
       </button>
 
       {modalOpen ? <div className="modal-backdrop-enter fixed inset-0 z-50 grid place-items-center overflow-y-auto bg-[#010810]/90 p-3 sm:p-6" onMouseDown={(event) => event.target === event.currentTarget && setModalOpen(false)}>
