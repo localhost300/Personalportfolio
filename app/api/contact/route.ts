@@ -36,7 +36,7 @@ export async function POST(request: Request) {
     });
 
     await transporter.sendMail({
-      from: `Mary Eklund Brown Website <${user}>`,
+      from: `Andrea Marie Shenocca Website <${user}>`,
       to: recipient,
       replyTo: email,
       subject: `New consultation request from ${fullName}`,

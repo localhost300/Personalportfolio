@@ -18,7 +18,7 @@ const points = [
 ];
 
 const series = [
-  { key: "mary", label: "Mary’s Strategy", color: "#d7b541" },
+  { key: "mary", label: "Andrea’s Strategy", color: "#d7b541" },
   { key: "balanced", label: "60/40 Benchmark", color: "#7f9cc6" },
   { key: "sp500", label: "S&P 500", color: "#d6dbe4" },
 ] as const;
@@ -61,7 +61,7 @@ export default function InteractiveChart() {
     <div className="border-panel overflow-hidden">
       <header className="border-b border-gold/20 px-5 py-5 sm:px-8">
         <p className="text-[10px] font-medium uppercase tracking-[.2em] text-gold">Performance comparison</p>
-        <h3 className="mt-2 font-display text-2xl text-ivory sm:text-3xl">Mary’s Balanced Strategy vs. S&amp;P 500</h3>
+        <h3 className="mt-2 font-display text-2xl text-ivory sm:text-3xl">Andrea’s Balanced Strategy vs. S&amp;P 500</h3>
         <p className="mt-1 text-xs leading-5 text-mist">2015 to 2026, indexed to 100 at the starting year</p>
         <div className="mt-5 flex flex-wrap gap-x-6 gap-y-3">
           {series.map((item) => <div key={item.key} className="flex items-center gap-2 text-[10px] uppercase tracking-[.12em] text-mist"><span className="h-0.5 w-7" style={{ backgroundColor: item.color }}/>{item.label}</div>)}
@@ -74,7 +74,7 @@ export default function InteractiveChart() {
             viewBox={`0 0 ${width} ${height}`}
             className="w-full touch-none overflow-visible"
             role="img"
-            aria-label={`Interactive comparison chart for ${active.year}. Mary’s Strategy ${active.mary}, 60/40 Benchmark ${active.balanced}, S and P 500 ${active.sp500}.`}
+            aria-label={`Interactive comparison chart for ${active.year}. Andrea’s Strategy ${active.mary}, 60/40 Benchmark ${active.balanced}, S and P 500 ${active.sp500}.`}
             tabIndex={0}
             onPointerMove={(event) => updateFromPointer(event.clientX, event.currentTarget)}
             onKeyDown={(event) => {

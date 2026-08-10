@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-sans: Manrope, Calibri, "Segoe UI", Arial, sans-serif;
+  --font-signature: "French Script MT", Gabriola, "Segoe Script", cursive;
+}
+
 @layer base {
   * { @apply box-border; }
   html { @apply scroll-smooth; }
@@ -12,12 +18,19 @@
 }
 
 @layer components {
+  .signature-logo {
+    font-family: var(--font-signature);
+    font-weight: 400;
+    letter-spacing: .01em;
+  }
+
   .section-label { @apply flex items-center gap-3 text-[10px] font-medium uppercase tracking-label text-gold; }
   .section-label::before { content: ""; @apply h-px w-5 bg-gold; }
   .display-title { @apply font-display text-[44px] font-normal leading-[1.05] tracking-[-0.02em] text-ivory md:text-[58px]; }
   .display-title em { @apply font-normal text-gold; }
-  .body-copy { @apply text-[14px] leading-[1.8] text-mist; }
-  .gold-button { @apply inline-flex items-center justify-center gap-3 bg-gold px-6 py-4 text-[10px] font-semibold uppercase tracking-[.15em] text-ink transition hover:bg-[#e2c65b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold; }
+  .body-copy { @apply text-[16px] font-normal leading-[1.75] text-mist; }
+  .gold-button { @apply inline-flex min-h-11 items-center justify-center gap-2.5 bg-gold px-5 py-3 text-[9px] font-semibold uppercase tracking-[.14em] text-ink transition hover:bg-[#e2c65b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold; }
+  .gold-button svg { @apply size-3 shrink-0; }
   .border-panel { @apply border border-gold/20 bg-panel; }
   .reveal-enter { animation: reveal-enter .65s ease-out both; }
   .modal-backdrop-enter { animation: modal-fade .28s ease-out both; }
