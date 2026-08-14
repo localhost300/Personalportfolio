@@ -27,6 +27,8 @@ const goals = [
   ["Building a Financial Strategy", faCompass],
 ] as const;
 
+const generalConsultationGoal = "General financial consultation";
+
 const services = [
   ["Investment Management", "Purpose-built portfolios guided by research, diversification, and disciplined risk management.", faChartLine],
   ["Retirement Planning", "A coordinated strategy designed to support your lifestyle, income needs, and long-term security.", faClock],
@@ -112,7 +114,7 @@ export default function Home() {
   }, [autoPrompt, goal, modalOpen, submitted]);
 
   const openConsultation = () => {
-    setGoal("");
+    setGoal(generalConsultationGoal);
     setSubmitted(false);
     setSubmitError("");
     setIsSubmitting(false);
