@@ -18,9 +18,9 @@ const points = [
 ];
 
 const series = [
-  { key: "mary", label: "Andrea’s Strategy", color: "#d7b541" },
-  { key: "balanced", label: "60/40 Benchmark", color: "#7f9cc6" },
-  { key: "sp500", label: "S&P 500", color: "#d6dbe4" },
+  { key: "mary", label: "Andrea's Strategy", color: "#4a9b8e" },
+  { key: "balanced", label: "60/40 Benchmark", color: "#8b9e99" },
+  { key: "sp500", label: "S&P 500", color: "#a8a89a" },
 ] as const;
 
 const width = 960;
@@ -82,15 +82,15 @@ export default function InteractiveChart() {
               if (event.key === "ArrowRight") setActiveIndex((value) => Math.min(points.length - 1, value + 1));
             }}
           >
-            <defs><linearGradient id={gradientId} x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#d7b541" stopOpacity=".17"/><stop offset="1" stopColor="#d7b541" stopOpacity="0"/></linearGradient></defs>
+            <defs><linearGradient id={gradientId} x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#4a9b8e" stopOpacity=".17"/><stop offset="1" stopColor="#4a9b8e" stopOpacity="0"/></linearGradient></defs>
             {[100, 190, 280, 370].map((value) => {
               const y = coordinates[0].y(value);
-              return <g key={value}><line x1={left} x2={width-right} y1={y} y2={y} stroke="rgba(127,156,198,.16)"/><text x={left-12} y={y+4} textAnchor="end" fill="#7f9cc6" fontSize="10">{value}</text></g>;
+              return <g key={value}><line x1={left} x2={width-right} y1={y} y2={y} stroke="rgba(26,26,26,.20)"/><text x={left-12} y={y+4} textAnchor="end" fill="#1a1a1a" fontSize="10">{value}</text></g>;
             })}
             <path d={area} fill={`url(#${gradientId})`}/>
             {series.map((item) => <path key={item.key} d={pathFor(item.key)} fill="none" stroke={item.color} strokeWidth={item.key === "mary" ? 3 : 2} strokeDasharray={item.key === "balanced" ? "7 5" : undefined}/>) }
-            <line x1={active.x} x2={active.x} y1={top} y2={height-bottom} stroke="#d7b541" strokeDasharray="4 5" opacity=".55"/>
-            {coordinates.map((point, index) => <g key={point.year} onClick={() => setActiveIndex(index)} className="cursor-pointer"><circle cx={point.x} cy={point.y(point.mary)} r={index === activeIndex ? 6 : 3} fill="#d7b541" stroke="#0a1a31" strokeWidth="2"/><text x={point.x} y={height-17} textAnchor="middle" fill={index === activeIndex ? "#f5f1e8" : "#7f9cc6"} fontSize="11">{point.year}</text></g>)}
+            <line x1={active.x} x2={active.x} y1={top} y2={height-bottom} stroke="#4a9b8e" strokeDasharray="4 5" opacity=".55"/>
+            {coordinates.map((point, index) => <g key={point.year} onClick={() => setActiveIndex(index)} className="cursor-pointer"><circle cx={point.x} cy={point.y(point.mary)} r={index === activeIndex ? 6 : 3} fill="#4a9b8e" stroke="#ffffff" strokeWidth="2"/><text x={point.x} y={height-17} textAnchor="middle" fill={index === activeIndex ? "#1a2c31" : "#1a1a1a"} fontSize="11">{point.year}</text></g>)}
           </svg>
         </div>
         <aside className="border-t border-gold/20 bg-deep/60 p-6 lg:border-l lg:border-t-0">

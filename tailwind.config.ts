@@ -5,12 +5,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        ink: "#071426",
-        deep: "#0d2243",
-        panel: "#0a1a31",
-        gold: "#d7b541",
-        ivory: "#f5f1e8",
-        mist: "#7f9cc6",
+        ink: "#ffffff",
+        deep: "#f8f6f2",
+        panel: "#ffffff",
+        gold: "#4a9b8e",
+        ivory: "#1a2c31",
+        mist: "#1a1a1a",
       },
       fontFamily: {
         display: ["var(--font-display)", "Georgia", "serif"],

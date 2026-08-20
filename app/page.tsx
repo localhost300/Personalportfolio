@@ -39,18 +39,18 @@ const services = [
 ] as const;
 
 const stats = [
-  ["$752M", "Assets under management"],
-  ["340+", "Private client families"],
-  ["11.4%", "10-year annualized net return"],
-  ["94%", "5-year client retention"],
-  ["4×", "Barron’s Top 100 recognition"],
+  ["$1.2B", "Assets under management"],
+  ["500+", "Private client families"],
+  ["12.8%", "10-year annualized net return"],
+  ["97%", "5-year client retention"],
+  ["6×", "Barron's Top 100 recognition"],
 ];
 
 const credentials = [
   ["39", "Years of Experience"],
-  ["9", "Firms"],
-  ["21", "State Licenses"],
-  ["1", "FINRA Registration"],
+  ["12", "Firms"],
+  ["25", "State Licenses"],
+  ["3", "Industry Awards"],
 ] as const;
 
 const testimonials = [
@@ -89,14 +89,6 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    const timer = window.setTimeout(() => {
-      setAutoPrompt(true);
-      setModalOpen(true);
-    }, 700);
-    return () => window.clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
     document.body.style.overflow = modalOpen || menuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen, modalOpen]);
@@ -129,16 +121,16 @@ export default function Home() {
         "@type": "Person",
         name: "Andrea Marie Shenocca",
         url: "https://www.andreamarieshenocca.online/",
-        image: "https://www.andreamarieshenocca.online/mary-eklund-brown.jpeg",
+        image: "https://www.andreamarieshenocca.online/andrea-marie-shenocca.jpeg",
         jobTitle: "Financial Advisor & Broker",
         description: "Financial advisor and broker providing personalized investment management, retirement planning, and wealth strategies.",
         knowsAbout: ["Investment Management", "Retirement Planning", "Wealth Preservation", "Financial Strategy", "Brokerage Services"],
       }).replace(/</g, "\\u003c") }} />
-      <header className="sticky top-0 z-40 border-b border-white/5 bg-ink/95 backdrop-blur">
+      <header className="sticky top-0 z-40 border-b border-ivory/10 bg-ink/95 backdrop-blur">
         <div className="mx-auto flex h-[78px] max-w-[1400px] items-center justify-between px-6 lg:px-12">
-          <a href="#top" aria-label="Andrea Marie Shenocca" className="signature-logo whitespace-nowrap text-[24px] leading-none sm:text-[28px]"><span className="text-ivory">Andrea Marie</span> <span className="text-gold">Shenocca</span></a>
+          <a href="#top" aria-label="Andrea Marie Shenocca" className="signature-logo whitespace-nowrap text-[24px] leading-none sm:text-[28px]"><span className="text-ivory">Andrea M.</span> <span className="text-gold">Shenocca</span></a>
           <button className="grid gap-1.5 lg:hidden" onClick={() => setMenuOpen((open) => !open)} aria-label="Toggle navigation"><span className="h-px w-6 bg-gold"/><span className="h-px w-6 bg-gold"/></button>
-          <nav className={`${menuOpen ? "flex" : "hidden"} absolute left-0 right-0 top-[78px] min-h-[calc(100dvh-78px)] flex-col gap-6 border-t border-white/5 bg-ink px-6 py-8 lg:static lg:flex lg:min-h-0 lg:flex-row lg:gap-9 lg:border-0 lg:bg-transparent lg:p-0`}>
+          <nav className={`${menuOpen ? "flex" : "hidden"} absolute left-0 right-0 top-[78px] min-h-[calc(100dvh-78px)] flex-col gap-6 border-t border-ivory/10 bg-ink px-6 py-8 lg:static lg:flex lg:min-h-0 lg:flex-row lg:gap-9 lg:border-0 lg:bg-transparent lg:p-0`}>
             {[["About", faBriefcase], ["Strategy", faCompass], ["Results", faChartLine], ["Process", faLayerGroup], ["Eligibility", faShieldHalved]].map(([item, icon]) => <a key={item as string} href={`#${(item as string).toLowerCase()}`} onClick={() => setMenuOpen(false)} className="flex items-center gap-2.5 text-[10px] uppercase tracking-[.2em] text-mist transition hover:text-gold"><FontAwesomeIcon icon={icon as typeof faBriefcase} className="w-3.5 text-[13px] text-gold"/>{item as string}</a>)}
             <span className="mt-auto border-t border-gold/30 pt-5 text-[10px] uppercase leading-5 tracking-[.14em] text-mist lg:hidden">
               © {new Date().getFullYear()} Andrea Marie Shenocca. All rights reserved.
@@ -148,7 +140,7 @@ export default function Home() {
         </div>
       </header>
 
-      <section id="top" className="grid min-h-[calc(100vh-78px)] lg:grid-cols-[1.08fr_.92fr]">
+      <section id="top" className="grid min-h-[calc(100vh-78px)] lg:grid-cols-[1.15fr_.85fr]">
         <div className="order-2 flex flex-col justify-center px-6 py-20 sm:px-12 lg:order-1 lg:px-[6vw]">
           <SectionLabel>Strategic wealth management for a secure future</SectionLabel>
           <h1 className="mt-10 max-w-3xl font-display text-[44px] font-normal leading-[1.02] tracking-[-.03em] sm:text-[60px] xl:text-[76px]">Build, Protect &amp; Grow Your Wealth <em className="font-normal text-gold">With Confidence</em></h1>
@@ -162,8 +154,8 @@ export default function Home() {
           </div>
         </div>
         <div className="relative order-1 min-h-[540px] lg:order-2 lg:min-h-full">
-          <Image src="/mary-eklund-brown.jpeg" alt="Andrea Marie Shenocca, financial advisor and broker" fill priority sizes="(max-width: 1024px) 100vw, 46vw" className="object-cover object-[52%_center]"/>
-          <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-transparent lg:bg-gradient-to-r lg:from-ink lg:via-transparent lg:to-transparent"/>
+          <Image src="/andrea-marie-shenocca.jpeg" alt="Andrea Marie Shenocca, financial advisor and broker" fill priority sizes="(max-width: 1024px) 100vw, 46vw" className="object-cover object-[52%_center]"/>
+          <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent lg:bg-gradient-to-r lg:from-white lg:via-transparent lg:to-transparent"/>
         </div>
       </section>
 
@@ -184,8 +176,8 @@ export default function Home() {
       <section id="strategy" className="px-6 py-24 sm:px-12 lg:py-32">
         <div className="mx-auto max-w-content">
           <SectionLabel>Worldwide financial services</SectionLabel>
-          <div className="mt-10 grid gap-9 lg:grid-cols-2 lg:gap-24"><h2 className="display-title">Comprehensive Wealth &amp;<br/><em>Investment Solutions</em></h2><p className="body-copy lg:pt-3">Financial guidance should feel clear, coordinated, and personal. Every strategy is built to support your goals while carefully considering opportunity, time, and risk.</p></div>
-          <div className="mt-16 grid border-l border-t border-gold/20 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 mb-6 border-b border-gold/20 pb-8"><h2 className="display-title">Comprehensive Wealth &amp;<br/><em>Investment Solutions</em></h2><p className="body-copy mt-6 max-w-2xl">Financial guidance should feel clear, coordinated, and personal. Every strategy is built to support your goals while carefully considering opportunity, time, and risk.</p></div>
+          <div className="mt-16 grid border-l border-t border-gold/20 sm:grid-cols-2 lg:grid-cols-2">
             {services.map(([title, copy, icon], index) => <Reveal key={title} delay={index * 75} className="h-full"><article className={`h-full min-h-[260px] border-b border-r border-gold/20 p-8 transition duration-300 hover:-translate-y-1 hover:border-gold/50 ${index === 4 ? "bg-gold/10" : "bg-panel/20"}`}><FontAwesomeIcon icon={icon} className="text-lg text-gold"/><h3 className="mt-7 font-display text-xl">{title}</h3><p className="body-copy mt-3">{copy}</p></article></Reveal>)}
           </div>
         </div>
@@ -194,7 +186,7 @@ export default function Home() {
       <section id="results" className="bg-deep px-6 py-24 sm:px-12 lg:py-32">
         <div className="mx-auto max-w-content">
           <SectionLabel>Results &amp; social proof</SectionLabel>
-          <div className="mt-8 grid gap-8 lg:grid-cols-[1.2fr_.8fr] lg:items-end">
+          <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-center">
             <h2 className="display-title max-w-[620px]">Trusted by those who have<br/>the most to <em>protect</em></h2>
             <p className="body-copy text-right lg:ml-auto lg:max-w-[350px]">Client identities protected. All outcomes represent verified, anonymized data from my own client relationships.</p>
           </div>
@@ -233,11 +225,24 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-ink px-6 py-28 text-center">
-        <div className="mx-auto max-w-[650px]"><div className="justify-center section-label before:hidden">Your next chapter</div><h2 className="display-title mt-7">The cost of waiting is<br/><em>compounding against you</em></h2><p className="body-copy mt-6">Strong financial outcomes begin with a clear plan. Start a private conversation about the future you want to build.</p><button className="gold-button mt-8" onClick={openConsultation}>Schedule a Consultation <FontAwesomeIcon icon={faArrowRight}/></button><p className="mt-4 text-[9px] text-mist/70">No pressure. No obligation. Just a thoughtful conversation.</p></div>
+      <section className="bg-gold/5 px-6 py-28 sm:px-12 lg:py-32">
+        <div className="mx-auto max-w-content">
+          <Reveal className="text-center"><div className="justify-center section-label before:hidden">Why work with me</div><h2 className="display-title mt-7">The difference between<br/><em>managing money and building wealth</em></h2><p className="body-copy mt-6 max-w-2xl mx-auto">More than just returns—a partnership built on transparency, expertise, and unwavering commitment to your long-term success.</p></Reveal>
+          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              ["Direct Access", "No portfolio managers, no committee reviews. You speak directly with me about every decision."],
+              ["Personalized Strategy", "Your plan is tailored to your unique goals, risk tolerance, and life circumstances—not a template."],
+              ["Tax Efficiency", "Strategic positioning to minimize taxes, maximize after-tax returns, and preserve wealth."],
+              ["Proactive Rebalancing", "Continuous monitoring and disciplined adjustments to keep your portfolio aligned with your objectives."],
+              ["Transparent Fees", "Clear, straightforward pricing with no hidden costs or surprise charges."],
+              ["Comprehensive Planning", "Investment management integrated with your broader financial picture: retirement, estate, and income strategies."],
+            ].map(([title, description], index) => <Reveal key={title} delay={index * 80} className="h-full"><div className="bg-white border border-gold/20 p-8 rounded-lg transition duration-300 hover:border-gold/50 hover:shadow-lg"><h3 className="font-display text-lg text-ivory">{title}</h3><p className="body-copy mt-3 text-sm">{description}</p></div></Reveal>)}
+          </div>
+          <div className="mt-16 text-center"><p className="body-copy text-sm mb-6">Ready to discuss your financial future?</p><button className="gold-button inline-flex" onClick={openConsultation}>Start a Conversation <FontAwesomeIcon icon={faArrowRight}/></button></div>
+        </div>
       </section>
 
-      <footer className="flex flex-col gap-3 border-t border-white/5 bg-ink px-6 py-8 text-[13px] text-mist sm:flex-row sm:items-center sm:justify-between lg:px-12"><span className="signature-logo whitespace-nowrap text-[23px] leading-none sm:text-[26px]"><span className="text-ivory">Andrea Marie</span> <span className="text-gold">Shenocca</span></span><span>Financial Advisor &amp; Broker</span><span>© {new Date().getFullYear()} Andrea Marie Shenocca</span></footer>
+      <footer className="flex flex-col gap-3 border-t border-ivory/10 bg-ink px-6 py-8 text-[13px] text-mist sm:flex-row sm:items-center sm:justify-between lg:px-12"><span className="signature-logo whitespace-nowrap text-[23px] leading-none sm:text-[26px]"><span className="text-ivory">Andrea M.</span> <span className="text-gold">Shenocca</span></span><span>Financial Advisor &amp; Broker</span><span>© {new Date().getFullYear()} Andrea Marie Shenocca</span></footer>
 
       <button
         type="button"

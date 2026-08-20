@@ -14,7 +14,7 @@
   body { @apply m-0 bg-ink font-sans font-light text-ivory antialiased; }
   button, a, input, textarea { font: inherit; }
   button, a { -webkit-tap-highlight-color: transparent; }
-  ::selection { @apply bg-gold text-ink; }
+  ::selection { @apply bg-gold text-white; }
 }
 
 @layer components {
