@@ -19,6 +19,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import InteractiveChart from "@/components/InteractiveChart";
 import Reveal from "@/components/Reveal";
+import { absoluteUrl } from "@/app/site";
 
 const goals = [
   ["Growing an Investment Portfolio", faChartLine],
@@ -120,8 +121,8 @@ export default function Home() {
         "@context": "https://schema.org",
         "@type": "Person",
         name: "Andrea Marie Shenocca",
-        url: "https://www.andreamarieshenocca.online/",
-        image: "https://www.andreamarieshenocca.online/andrea-marie-shenocca.jpeg",
+        url: absoluteUrl(),
+        image: absoluteUrl("/andrea-marie-shenocca.jpeg"),
         jobTitle: "Financial Advisor & Broker",
         description: "Financial advisor and broker providing personalized investment management, retirement planning, and wealth strategies.",
         knowsAbout: ["Investment Management", "Retirement Planning", "Wealth Preservation", "Financial Strategy", "Brokerage Services"],
